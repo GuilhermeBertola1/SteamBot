@@ -1,7 +1,5 @@
 const puppeteer = require('puppeteer');
 const fs = require('fs');
-const { clearCustomQueryHandlers, customQueryHandlerNames, PuppeteerNode } = require('puppeteer-core');
-const { clear } = require('console');
 
 let paginaValue = 20;
 let lista = [];
