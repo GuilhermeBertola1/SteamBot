@@ -1,0 +1,4 @@
+Install VSCODE;
+Install Node;
+
+npm install puppeteer-core;
