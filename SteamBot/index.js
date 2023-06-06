@@ -1,5 +1,5 @@
-const puppeteer = require('puppeteer');
-const fs = require('fs');
+import puppeteer from "puppeteer";
+import fs from "fs";
 
 let paginaValue = 6;
 let div = 1;
@@ -12,6 +12,8 @@ let listaMudaConta = [1,2,3,5,6,7,9,10,
   50,51,53,54,55,57,58,59,
   61,62,63,65,66,67
 ];
+
+let con = "";
 
 async function webBot(){
 
@@ -33,10 +35,17 @@ async function webBot(){
     console.log(paginaValue - 1);
           
     for(var clickAccounts = 1; clickAccounts <= 51; clickAccounts++){
+      do{
+        const conta = await page.waitForXPath('//*[@id="memberList"]/div[' + listaMudaConta[FatormudaConta] + ']/div[1]/a');
+        console.log(con);
+        con = conta;
+        console.log(con);
+        await conta.click();
+      }while(con == "");
 
-      await page.waitForTimeout(3000);
-      const conta = await page.waitForXPath('//*[@id="memberList"]/div[' + listaMudaConta[FatormudaConta] + ']/div[1]/a');
-      await conta.click();
+      con = "";
+      console.log(con);
+
       await page.waitForTimeout(2000);
 
       await page.waitForSelector('.profile_header_summary');
@@ -86,7 +95,6 @@ async function webBot(){
       FatormudaConta++;
             
     }
-
   }
 
   await browser.close();
