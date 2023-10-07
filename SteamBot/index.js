@@ -40,7 +40,7 @@ async function webBot(){
         console.log(con);
         con = conta;
         console.log(con);
-        await conta.click();
+        conta.click();
       }while(con == "");
 
       con = "";
